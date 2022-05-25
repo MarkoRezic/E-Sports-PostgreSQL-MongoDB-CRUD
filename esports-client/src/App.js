@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import { NavLink, Route, Routes } from 'react-router-dom'
 import './App.css';
+import { MongoDBSection } from './components/mongodb/MongoDBSection';
+import { PostgresSection } from './components/postgres/PostgresSection';
 
-function App() {
+const App = () => {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <NavLink className={({ isActive }) => 'postgres nav-link' + (isActive ? ' nav-active' : '')} to={'postgres'}>Postgres</NavLink>
+        <NavLink className={({ isActive }) => 'mongodb nav-link' + (isActive ? ' nav-active' : '')} to={'mongodb'}>MongoDB</NavLink>
       </header>
+      <Routes>
+        <Route path='postgres/*' element={<PostgresSection />} />
+        <Route path='mongodb/*' element={<MongoDBSection />} />
+      </Routes>
     </div>
   );
 }

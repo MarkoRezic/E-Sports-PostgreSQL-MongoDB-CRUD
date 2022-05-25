@@ -42,7 +42,7 @@ const db_mysql_parallel = mysql.createPool({
     multipleStatements: true,
 });
 
-const db_postgre = new pg.Pool({
+const db_postgres = new pg.Pool({
     user: POSTGRESQL_DB_USER,
     host: POSTGRESQL_DB_HOST,
     password: POSTGRESQL_DB_PASSWORD,
@@ -56,5 +56,5 @@ module.exports = {
     mysql,
     db_mysql,
     db_mysql_parallel,
-    db_postgre
+    db_postgres
 };

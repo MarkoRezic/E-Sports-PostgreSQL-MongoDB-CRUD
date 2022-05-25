@@ -1,0 +1,28 @@
+table {
+    width: fit-content;
+    overflow: auto;
+    border: 1px solid #fff;
+    border-collapse: collapse;
+    margin: 20px auto;
+    color: #fff;
+}
+
+table.postgres thead {
+    background-color: var(--postgres-color-active);
+    font-weight: bold;
+}
+
+table.mongodb thead {
+    background-color: var(--mongodb-color-active);
+}
+
+table tbody {
+    width: 100%;
+}
+
+table th,
+table td {
+    padding: 10px;
+    border: 1px solid #fff;
+    text-align: center;
+}

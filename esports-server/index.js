@@ -1,6 +1,6 @@
 const express = require('express');
 const userRouter = require('./routers/userRouter.js');
-const postgreRouter = require('./routers/postgreRouter.js');
+const postgresRouter = require('./routers/postgresRouter.js');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const database = require('./database.js');
@@ -20,12 +20,12 @@ app.set('trust proxy', true);
 app.use('/close-connections', (req, res) => {
     database.db_mysql.end()
     database.db_mysql_parallel.end()
-    database.db_postgre.end()
+    database.db_postgres.end()
     res.json({ message: 'connections closed' });
 })
 
 app.use('/users', userRouter);
-app.use('/postgre', postgreRouter);
+app.use('/postgres', postgresRouter);
 
 app.listen(process.env.PORT || 3001, () => {
     console.log("server running");
