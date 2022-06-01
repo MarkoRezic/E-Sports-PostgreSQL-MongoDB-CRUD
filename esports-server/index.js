@@ -1,5 +1,4 @@
 const express = require('express');
-const userRouter = require('./routers/userRouter.js');
 const postgresRouter = require('./routers/postgresRouter.js');
 const mongoRouter = require('./routers/mongoRouter.js');
 const cors = require('cors');
@@ -25,7 +24,6 @@ app.use('/close-connections', (req, res) => {
     res.json({ message: 'connections closed' });
 })
 
-app.use('/users', userRouter);
 app.use('/postgres', postgresRouter);
 app.use('/mongo', mongoRouter);
 
