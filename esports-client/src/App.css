@@ -36,6 +36,11 @@ header {
   background-color: var(--mongodb-color-active);
 }
 
+.postgres.loader,
+.mongodb.loader {
+  background-color: unset;
+}
+
 .nav-link {
   color: #fff;
   flex: 1;

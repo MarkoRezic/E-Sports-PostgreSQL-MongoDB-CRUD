@@ -1,6 +1,7 @@
 const express = require('express');
 const userRouter = require('./routers/userRouter.js');
 const postgresRouter = require('./routers/postgresRouter.js');
+const mongoRouter = require('./routers/mongoRouter.js');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const database = require('./database.js');
@@ -26,6 +27,7 @@ app.use('/close-connections', (req, res) => {
 
 app.use('/users', userRouter);
 app.use('/postgres', postgresRouter);
+app.use('/mongo', mongoRouter);
 
 app.listen(process.env.PORT || 3001, () => {
     console.log("server running");

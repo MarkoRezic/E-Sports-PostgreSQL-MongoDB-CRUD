@@ -1,8 +1,18 @@
 .loader {
+    position: fixed;
+    top: 50%;
+    left: calc(50% - 40px);
     fill: transparent;
-    stroke: blue;
     stroke-width: 8;
     animation: dash 2s ease infinite, rotate 2s linear infinite;
+}
+
+.postgres.loader {
+    stroke: var(--postgres-color-active);
+}
+
+.mongodb.loader {
+    stroke: var(--mongodb-color-active);
 }
 
 @keyframes dash {

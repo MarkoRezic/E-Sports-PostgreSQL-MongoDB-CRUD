@@ -12,10 +12,12 @@ const {
     MONGO_DB_USER,
     MONGO_DB_PASSWORD,
     MONGO_DB_DATABASE,
+    MONGO_DB_PORT
 } = process.env;
 
 const mysql = require("mysql");
 const pg = require("pg");
+const MongoClient = require('mongodb').MongoClient
 
 const db_mysql = mysql.createPool({
     connectionLimit: 1000,
@@ -50,11 +52,13 @@ const db_postgres = new pg.Pool({
     port: 5432,
 })
 
-
+const mongoConenctionString = `mongodb://${MONGO_DB_HOST}:${MONGO_DB_PORT}/${MONGO_DB_DATABASE}`
 
 module.exports = {
     mysql,
     db_mysql,
     db_mysql_parallel,
-    db_postgres
+    db_postgres,
+    MongoClient,
+    mongoConenctionString
 };

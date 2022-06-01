@@ -22,7 +22,7 @@ export const PostgresSection = () => {
             <header>
                 {
                     tables.length === 0 ?
-                        <svg className="loader progress" width="80" height="80" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <svg className="loader postgres progress" width="80" height="80" version="1.1" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="40" cy="40" r="30"></circle>
                         </svg>
                         : tables.map((table, index) => <NavLink className={({ isActive }) => 'postgres nav-link' + (isActive ? ' nav-active' : '')} to={table.table_name} key={index}> {table.table_name} </NavLink>)

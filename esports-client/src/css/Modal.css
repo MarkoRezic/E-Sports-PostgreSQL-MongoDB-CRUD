@@ -1,0 +1,101 @@
+.modal-container {
+    position: fixed;
+    width: fit-content;
+    height: fit-content;
+    left: 0;
+    top: 0;
+}
+
+.modal-cover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.5;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    min-width: fit-content;
+}
+
+.modal {
+    border: 2px solid var(--postgres-color-active);
+    background-color: var(--postgres-color);
+}
+
+.modal-title {
+    color: #fff;
+    text-align: center;
+}
+
+.input-row {
+    display: flex;
+    flex-wrap: nowrap;
+    color: #fff;
+}
+
+.modal .button-row {
+    display: flex;
+    justify-content: right;
+    margin-top: 10px;
+}
+
+
+button {
+    background-color: var(--postgres-color-active);
+    padding: 5px 15px;
+    margin: 0 5px;
+    border: 2px solid var(--postgres-color-active);
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--postgres-color-hover);
+}
+
+.modal .insert-btn,
+.modal .update-btn {}
+
+.close-btn {
+    border: 2px solid rgb(164, 46, 46);
+    background-color: rgb(164, 46, 46);
+}
+
+.close-btn:hover {
+    background-color: rgb(191, 87, 87);
+}
+
+.modal label {
+    flex: 2;
+    margin: 5px;
+}
+
+.modal input,
+.modal select {
+    flex: 3;
+    margin: 5px;
+    min-width: 300px;
+    background-color: var(--postgres-color-active);
+    border: 1px solid transparent;
+    border-radius: 2px;
+    padding: 5px;
+    color: #fff;
+    outline: none;
+}
+
+.modal input:focus {
+    border: 1px solid #fff;
+}
+
+.modal input:disabled {
+    background-color: var(--postgres-color-hover);
+}
