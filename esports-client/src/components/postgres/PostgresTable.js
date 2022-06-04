@@ -24,11 +24,13 @@ export const PostgresTable = () => {
     }, [table_name])
 
     const openInsert = (data, keys) => {
+        console.log(keys)
         setModalData({ data: data, keys: keys.map((key) => key.name), mode: 'INSERT' })
         setShowModal(true)
     }
 
     const openUpdate = (data, keys) => {
+        console.log(keys)
         setModalData({ data: data, keys: keys.map((key) => key.name), mode: 'UPDATE' })
         setShowModal(true)
     }
@@ -53,20 +55,27 @@ export const PostgresTable = () => {
         <div className='table-wrapper'>
             {
                 data === null ?
-                    <svg className="loader progress" width="80" height="80" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="loader postgres" width="80" height="80" version="1.1" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="40" cy="40" r="30"></circle>
                     </svg>
                     : <table className='postgres'>
                         <thead>
                             <tr>
-                                {data.fields.map((field, index) => <th key={index}>{field.name}</th>)}
+                                {data.fields.map((field, index) =>
+                                    field.name.startsWith('id_') && !field.name.endsWith(table_name) ? null
+                                        : <th key={index}>{field.name}</th>)
+                                }
                                 <th>ACTIONS <i className="action fas fa-plus" onClick={() => { openInsert(null, data.fields) }}></i></th>
                             </tr>
                         </thead>
                         <tbody>
                             {data.rows.map((row, indexRow) =>
+
                                 <tr key={indexRow}>
-                                    {data.fields.map((field, indexField) => <td key={indexField}>{row[field.name]}</td>)}
+                                    {data.fields.map((field, indexField) =>
+                                        field.name.startsWith('id_') && !field.name.endsWith(table_name) ? null
+                                            : <td key={indexField}>{row[field.name]}</td>)
+                                    }
                                     <td className='action-row'>
                                         <i className="action fas fa-plus" onClick={() => { openInsert(row, data.fields) }}></i>
                                         <i className="action fas fa-pencil-alt" onClick={() => { openUpdate(row, data.fields) }}></i>

@@ -7,6 +7,12 @@
     animation: dash 2s ease infinite, rotate 2s linear infinite;
 }
 
+.loader-relative {
+    position: relative;
+    top: 50%;
+    left: calc(50% - 40px);
+}
+
 .postgres.loader {
     stroke: var(--postgres-color-active);
 }

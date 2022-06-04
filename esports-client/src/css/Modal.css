@@ -22,9 +22,6 @@
     padding: 20px;
     border-radius: 5px;
     min-width: fit-content;
-}
-
-.modal {
     border: 2px solid var(--postgres-color-active);
     background-color: var(--postgres-color);
 }
@@ -75,13 +72,13 @@ button:hover {
 }
 
 .modal label {
-    flex: 2;
+    flex: 3;
     margin: 5px;
 }
 
 .modal input,
 .modal select {
-    flex: 3;
+    flex: 5;
     margin: 5px;
     min-width: 300px;
     background-color: var(--postgres-color-active);
@@ -92,7 +89,12 @@ button:hover {
     outline: none;
 }
 
-.modal input:focus {
+.modal select {
+    min-width: 200px;
+}
+
+.modal input:focus,
+.modal select:focus {
     border: 1px solid #fff;
 }
 
