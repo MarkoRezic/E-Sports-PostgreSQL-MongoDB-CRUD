@@ -22,8 +22,16 @@
     padding: 20px;
     border-radius: 5px;
     min-width: fit-content;
+}
+
+.postgres .modal {
     border: 2px solid var(--postgres-color-active);
     background-color: var(--postgres-color);
+}
+
+.mongodb .modal {
+    border: 2px solid var(--mongodb-color-active);
+    background-color: var(--mongodb-color);
 }
 
 .modal-title {
@@ -43,6 +51,10 @@
     margin-top: 10px;
 }
 
+.mongodb .modal {
+    user-select: none;
+}
+
 
 button {
     background-color: var(--postgres-color-active);
@@ -59,16 +71,25 @@ button:hover {
     background-color: var(--postgres-color-hover);
 }
 
+.mongodb button {
+    background-color: var(--mongodb-color-active);
+    border: 2px solid var(--mongodb-color-active);
+}
+
+.mongodb button:hover {
+    background-color: var(--mongodb-color-hover);
+}
+
 .modal .insert-btn,
 .modal .update-btn {}
 
 .close-btn {
-    border: 2px solid rgb(164, 46, 46);
-    background-color: rgb(164, 46, 46);
+    border: 2px solid rgb(164, 46, 46) !important;
+    background-color: rgb(164, 46, 46) !important;
 }
 
 .close-btn:hover {
-    background-color: rgb(191, 87, 87);
+    background-color: rgb(191, 87, 87) !important;
 }
 
 .modal label {
@@ -89,6 +110,11 @@ button:hover {
     outline: none;
 }
 
+.mongodb .modal input {
+    min-width: 100px;
+    background-color: var(--mongodb-color-active);
+}
+
 .modal select {
     min-width: 200px;
 }
@@ -100,4 +126,50 @@ button:hover {
 
 .modal input:disabled {
     background-color: var(--postgres-color-hover);
+}
+
+.delete-attribute,
+.add-attribute {
+    color: #fff !important;
+    cursor: pointer;
+    font-size: 13px;
+    margin: 4px 10px;
+    padding: 4px;
+    border: 1px solid var(--mongodb-color-active);
+    border-radius: 2px;
+}
+
+.mongodb .delete-attribute,
+.mongodb .add-attribute {
+    background-color: var(--mongodb-color);
+}
+
+.mongodb .delete-attribute:hover,
+.mongodb .add-attribute:hover {
+    background-color: var(--mongodb-color-active);
+}
+
+.modal .rejt-add-value-node {
+    color: #fff !important;
+}
+
+.modal .rejt-add-value-node input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.modal .rejt-add-value-node input[placeholder="Key"] {
+    color: #fff !important;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.modal .rejt-value {
+    background-color: var(--mongodb-color-active);
+    border-radius: 2px;
+    padding: 0px 4px 3px 4px;
+}
+
+.modal .rejt-value:hover {
+    cursor: pointer;
+    background-color: var(--mongodb-color-hover);
 }

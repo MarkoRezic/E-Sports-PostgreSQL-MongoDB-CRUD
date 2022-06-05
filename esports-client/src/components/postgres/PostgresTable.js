@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import '../../css/Table.css'
 import axios from 'axios'
-import { Modal } from '../modals/Modal';
+import { PostgresModal } from '../modals/PostgresModal';
 
 export const PostgresTable = () => {
     const { table_name } = useParams();
@@ -88,7 +88,7 @@ export const PostgresTable = () => {
             }
             {
                 showModal ?
-                    <Modal table_name={table_name} modalData={modalData} closeModal={closeModal} />
+                    <PostgresModal table_name={table_name} modalData={modalData} closeModal={closeModal} />
                     : null
             }
         </div>

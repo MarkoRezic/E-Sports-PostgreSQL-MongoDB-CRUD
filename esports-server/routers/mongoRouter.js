@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoRouter = express.Router();
 const database = require('../database.js');
+const ObjectId = require('mongodb').ObjectId;
 
 mongoRouter.use((req, res, next) => {
 
@@ -39,6 +40,35 @@ mongoRouter.get('/collection/:collection_name', (req, res) => {
     req.db.collection(req.params.collection_name).find().toArray()
         .then(results => {
             res.json({ results: results });
+        })
+
+});
+
+mongoRouter.post('/collection/:collection_name', (req, res) => {
+
+    console.log(req.body)
+    req.db.collection(req.params.collection_name).insertOne(req.body)
+        .then(result => {
+            res.json({ status: 'success', error: 0, result: result });
+        })
+
+});
+
+mongoRouter.put('/collection/:collection_name/:id_original', (req, res) => {
+
+    console.log(req.body)
+    req.db.collection(req.params.collection_name).replaceOne({ $or: [{ "_id": new ObjectId(req.params.id_original) }, { "_id": req.params.id_original }] }, req.body)
+        .then(result => {
+            res.json({ status: 'success', error: 0, result: result });
+        })
+
+});
+
+mongoRouter.delete('/collection/:collection_name/:id_original', (req, res) => {
+
+    req.db.collection(req.params.collection_name).deleteOne({ $or: [{ "_id": new ObjectId(req.params.id_original) }, { "_id": req.params.id_original }] }, true)
+        .then(result => {
+            res.json({ status: 'success', error: 0, result: result });
         })
 
 });

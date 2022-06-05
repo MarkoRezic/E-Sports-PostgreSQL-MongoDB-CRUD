@@ -3,7 +3,7 @@ import '../../css/Modal.css'
 import '../../css/Table.css'
 import axios from 'axios'
 
-export const Modal = (params) => {
+export const PostgresModal = (params) => {
     const { table_name, modalData, closeModal } = params
     const [foreignValues, setForeignValues] = useState(null);
 
@@ -57,7 +57,7 @@ export const Modal = (params) => {
     }
 
     return (
-        <div className="modal-container">
+        <div className="modal-container postgres">
             <div className='modal-cover' onClick={closeModal}></div>
             <div className='modal'>
 
